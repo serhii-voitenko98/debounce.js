@@ -1,9 +1,11 @@
-function debounce(fn, time) {
+function debounce(fn, delay) {
   let timeout = null;
 
   function debounced(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(fn.bind(this, ...args), time);
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(fn.bind(this, ...args), delay);
   }
 
   debounced.clear = () => clearTimeout(timeout);
