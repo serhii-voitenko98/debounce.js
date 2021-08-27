@@ -1,0 +1,1 @@
+const _debounce = debounce((value) => console.log(`Input changed, the value is: ${value}`), 500);
